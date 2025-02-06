@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 
-import { setCurrentStep, setSteps } from "./store/slices"
+import { setCurrentStep, setSteps, setUnsuccess } from "./store/slices"
 import { INTERVAL_TIME } from "./constants"
 
 import Controls from "./components/Controls"
 import RandomKeys from "./components/RandomKeys"
 import KeyPressed from "./components/KeyPressed"
+import Score from "./components/Score"
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playground)
@@ -19,6 +20,7 @@ const Playground: React.FC = () => {
   useEffect(() => {
     if (isTimerActive) {
       refreshIntervalId.current = setInterval(() => {
+        dispatch(setUnsuccess())
         dispatch(setCurrentStep())
         dispatch(setSteps())
       }, INTERVAL_TIME)
@@ -40,6 +42,7 @@ const Playground: React.FC = () => {
       />
       <RandomKeys isTimerActive={isTimerActive} />
       <KeyPressed isTimerActive={isTimerActive} />
+      <Score />
     </div>
   )
 }
