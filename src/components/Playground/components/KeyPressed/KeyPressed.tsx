@@ -3,6 +3,7 @@
 import { useEffect, useCallback } from "react"
 
 import { useAppDispatch } from "../../../../app/hooks"
+import { useKeyPressedElement } from "./hooks"
 import { setEnteredValue } from "../../store/slices"
 import { MAP_ARROW_CODES } from "../../constants"
 
@@ -12,6 +13,8 @@ export interface IKeyPressedProps {
 
 const KeyPressed: React.FC<IKeyPressedProps> = props => {
   const { isTimerActive } = props
+
+  const keyPressedElement = useKeyPressedElement()
 
   const dispatch = useAppDispatch()
 
@@ -32,7 +35,12 @@ const KeyPressed: React.FC<IKeyPressedProps> = props => {
     }
   })
 
-  return <div>KeyPressed</div>
+  return (
+    <div>
+      <h3>KeyPressed</h3>
+      <span>{keyPressedElement}</span>
+    </div>
+  )
 }
 
 export default KeyPressed
