@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../../../app/hooks"
 import { useKeyPressedElement } from "./hooks"
 import { setEnteredValue } from "../../store/slices"
 import { MAP_ARROW_CODES } from "../../constants"
+import { TypographyHeader, TypographyText } from "../../../UI"
 
 export interface IKeyPressedProps {
   isTimerActive: boolean
@@ -20,7 +21,10 @@ const KeyPressed: React.FC<IKeyPressedProps> = props => {
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (MAP_ARROW_CODES.hasOwnProperty(e.key) && isTimerActive) {
+      if (
+        Object.prototype.hasOwnProperty.call(MAP_ARROW_CODES, e.key) &&
+        isTimerActive
+      ) {
         dispatch(setEnteredValue(e.key))
       }
     },
@@ -37,7 +41,10 @@ const KeyPressed: React.FC<IKeyPressedProps> = props => {
 
   return (
     <div>
-      <h3>KeyPressed</h3>
+      <TypographyHeader>KeyPressed</TypographyHeader>
+      <TypographyText>
+        Press the key corresponding to the key in "Random keys"
+      </TypographyText>
       <span>{keyPressedElement}</span>
     </div>
   )
