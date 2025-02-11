@@ -13,3 +13,11 @@
   box-shadow: var(--box-shadow);
   background-color: #fff;
 }
+
+@media (max-width: 950px) {
+  .container {
+    width: 80%;
+    flex-direction: column;
+    gap: var(--spacing-medium) 0;
+  }
+}
