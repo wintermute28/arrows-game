@@ -1,6 +1,14 @@
-# vite-template-redux
+# Arrows game
 
-Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
+The link to the finished project is [here](https://arrows-game-sigma.vercel.app/).
+
+Uses:
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Vite](https://vitejs.dev/)
+- [Vitest](https://vitest.dev/)
 
 ```sh
 npx degit reduxjs/redux-templates/packages/vite-template-redux my-app
