@@ -7,7 +7,6 @@ import plagroundReducer, {
 describe("reducer setSteps", () => {
   it("check setSteps", () => {
     const setCurrentStepState = plagroundReducer(initialState, setCurrentStep())
-
     const setStepsState = plagroundReducer(setCurrentStepState, setSteps())
 
     const firstStep = {

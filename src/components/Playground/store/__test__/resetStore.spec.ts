@@ -1,9 +1,15 @@
-// import plagroundReducer, { initialState } from "../slices"
+import plagroundReducer, {
+  initialState,
+  setCurrentStep,
+  resetStore,
+} from "../slices"
 
-// describe("reducerName ", () => {
-//   it("check reducerName", () => {
-//     const state = plagroundReducer({}, {})
+describe("reducer resetStore", () => {
+  it("check resetStore", () => {
+    const setCurrentStepState = plagroundReducer(initialState, setCurrentStep())
 
-//     expect().toEqual()
-//   })
-// })
+    const resetStoreState = plagroundReducer(setCurrentStepState, resetStore())
+
+    expect(resetStoreState).toEqual(initialState)
+  })
+})

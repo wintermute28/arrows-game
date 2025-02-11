@@ -1,9 +1,19 @@
-// import plagroundReducer, { initialState } from "../slices"
+import plagroundReducer, {
+  initialState,
+  setUnsuccess,
+  setCurrentStep,
+  setSteps,
+} from "../slices"
 
-// describe("reducerName ", () => {
-//   it("check reducerName", () => {
-//     const state = plagroundReducer({}, {})
+describe("reducer setUnsuccess", () => {
+  it("check setUnsuccess", () => {
+    const setCurrentStepState = plagroundReducer(initialState, setCurrentStep())
 
-//     expect().toEqual()
-//   })
-// })
+    const setStepsState = plagroundReducer(setCurrentStepState, setSteps())
+
+    const setUnsuccessState = plagroundReducer(setStepsState, setUnsuccess())
+
+    expect(setUnsuccessState.steps[0].success).toBe(false)
+    expect(setUnsuccessState.totalUnsuccessful).toBe(1)
+  })
+})
